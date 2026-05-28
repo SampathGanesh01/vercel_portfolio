@@ -1,0 +1,69 @@
+---
+title: "ORo — Autonomous Home Robot for Dog Care"
+publishedAt: "2024-06-01"
+summary: "End-to-end product development of ORo, a consumer robot that autonomously manages home-based dog care — from treat dispensing and interactive play to autonomous indoor navigation."
+images:
+  - "/images/oro-robot/hero.jpg"
+  - "/images/robot-dev/family-of-robots.jpg"
+team:
+  - name: "Sampath Ganesh Kandregula"
+    role: "Product Manager & Robotics Architect"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/sampath01"
+tag: "Robotics · Product"
+---
+
+## Overview
+
+ORo is a consumer robot built by Ogmen Robotics, designed to provide autonomous home-based dog care. As the primary Product Owner and Robotics Architect, I drove the end-to-end development of the platform — from initial product vision through architecture, team coordination, and deployment.
+
+The product required tight integration across Embedded Systems, Robotics Software, Computer Vision, and AI/ML, making cross-functional alignment and clear product ownership critical to delivering a reliable, shippable robot.
+
+## My Role
+
+I owned the product roadmap and acted as the bridge between business goals and engineering execution. This meant:
+
+- Defining the product vision, feature priorities, and success metrics for each release cycle
+- Running Agile/Scrum ceremonies (sprint planning, backlog grooming, retrospectives) for a team of 8 engineers tracked in Jira
+- Making trade-off decisions between autonomy reliability, hardware constraints, and user experience
+
+## Autonomous Navigation
+
+The core of ORo's value is its ability to navigate a home environment reliably without human intervention. I architected and oversaw the deployment of:
+
+- **ROS 2 + Nav2** for full autonomous indoor navigation with dynamic obstacle avoidance
+- **SLAM** (2D Lidar and Visual) for accurate mapping and real-time localization
+- **BehaviorTree.CPP** for modular task sequencing — managing states like treat dispensing, interactive play, and returning to dock
+
+## AI-Powered Interaction
+
+To make ORo feel intuitive for non-technical pet owners, I developed LLM-based pipelines that translate natural language commands directly into robot behaviors. A user saying "go find the dog" triggers a full localization + navigation goal without any app navigation.
+
+When localization fails (common in real homes with changing layouts), smart re-localization pipelines automatically recover the robot's position using visual landmarks.
+
+## Object & Human Following
+
+I implemented bespoke following behavior by integrating vision-based detection (camera + depth) with a custom **DWB (Dynamic Window Approach)** controller plugin. This allows ORo to follow the dog or a person smoothly, maintaining safe distance and responding to sudden direction changes.
+
+## Full-Stack Connectivity
+
+The mobile app communicates with the robot through a **FastAPI-based backend** that bridges ROS 2 topics and services with cloud infrastructure. This architecture enabled:
+
+- Real-time status updates pushed to the app via WebSockets
+- Remote task assignment (e.g., schedule treat time from phone)
+- OTA firmware and software updates via CI/CD pipelines
+
+## Deployment & OTA
+
+One of the biggest operational challenges was deploying software updates to a fleet of home robots. I championed and implemented a **CI/CD pipeline with OTA (Over-The-Air) update support**, ensuring that:
+
+- Embedded, perception, and control software stacks could be updated remotely
+- Rollbacks were automated on failure detection
+- Fleet-wide deployments were staged and monitored
+
+## Outcomes
+
+- Delivered multiple shippable robot iterations with cross-functional team of 8 across 2+ years
+- Built a fully autonomous indoor navigation system with ROS 2 + Nav2 performing reliably in real home environments
+- Integrated LLM-based natural language control, making the robot accessible to non-technical users
+- Established OTA update infrastructure enabling continuous product improvement post-deployment

@@ -1,0 +1,57 @@
+---
+title: "Autonomous Food Delivery Robot — Petpooja"
+publishedAt: "2023-07-01"
+summary: "End-to-end PoC for a fully autonomous food delivery robot designed for restaurant environments — built from scratch using ROS 2, NAV2, and a custom staff-facing API."
+images:
+  - "/images/robot-dev/robot-corridor-hero.jpg"
+team:
+  - name: "Sampath"
+    role: "Robotics Software Intern"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/sampath01"
+tag: "Robotics · PoC"
+---
+
+## Overview
+
+During my internship at Petpooja, I independently engineered and delivered a complete working Proof-of-Concept (PoC) for an autonomous food delivery robot designed for restaurant environments. The project covered all software development and hardware integration from the ground up — from sensor setup and navigation stack to the staff-facing API.
+
+The goal was to demonstrate that a robot could reliably navigate a busy restaurant floor, accept table assignments from staff, and autonomously deliver food with no human guidance.
+
+## Robot in Action
+
+<RobotVideo src="/videos/food-delivery-robot.mp4" speed={2} />
+
+## Navigation System
+
+The entire autonomous navigation layer was built on **ROS 2 and NAV2**, the industry-standard stack for mobile robotics:
+
+- **Mapping**: Generated accurate 2D floor maps of the restaurant using Lidar-based SLAM
+- **Localization**: Real-time AMCL-based localization to track the robot's position within the map
+- **Path Planning**: NAV2 global and local planners handling dynamic obstacle avoidance around staff, furniture, and customers
+
+The system performed reliably in a real environment — handling tables being moved, people walking by, and narrow corridors.
+
+## Staff Integration API
+
+A key product insight was that the technology is only valuable if staff can actually use it. I developed a simple REST API that integrated directly with the restaurant's existing POS workflow:
+
+- Waiters select a target table number from a tablet interface
+- The API translates the selection into a NAV2 goal pose and sends it to the robot
+- The robot autonomously navigates to the table and returns to the staging area after delivery
+
+This removed all technical complexity from staff interaction — no joystick, no robot interface, just the same workflow they already used.
+
+## Technical Stack
+
+- **Robotics Middleware**: ROS 2 (Humble)
+- **Autonomous Navigation**: NAV2 (path planning + obstacle avoidance)
+- **Localization**: AMCL + Lidar SLAM
+- **API**: Custom REST service for table-to-pose mapping
+- **Hardware**: Mobile robot base with 2D Lidar and depth camera
+
+## Outcomes
+
+- Delivered a fully functional PoC demonstrating autonomous delivery in a real restaurant environment
+- Proved the concept of staff-workflow integration with zero learning curve for waiters
+- Validated ROS 2 + NAV2 as a production-viable stack for indoor service robotics

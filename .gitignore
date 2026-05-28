@@ -33,4 +33,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+next-env.d.ts# Large video files - serve from CDN or upload manually to Vercel
+public/videos/*.mp4
+public/videos/*.mov
+public/videos/*.webm

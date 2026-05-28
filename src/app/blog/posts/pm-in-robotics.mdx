@@ -1,0 +1,47 @@
+---
+title: "What it actually means to be a Product Manager in Robotics"
+publishedAt: "2025-03-15"
+summary: "Product management in robotics is unlike any other domain. You're shipping a physical system where software bugs can mean a robot crashing into a wall, not just a broken UI."
+tag: "Product"
+---
+
+Most PM frameworks were built for software products. Roadmaps, sprints, user stories, A/B tests — these tools assume you can ship fast, roll back easily, and observe user behaviour in a dashboard.
+
+Robotics breaks all of those assumptions.
+
+## The difference
+
+When I was leading the ORo robot product at Ogmen Robotics, a "bug" wasn't a broken button — it was a robot getting stuck in a corner at 2am, unable to find its way back to the dock. A "feature" wasn't a new settings screen — it was a navigation behaviour that had to work reliably across dozens of different home layouts, floor types, and lighting conditions.
+
+The feedback loop is fundamentally different. You can't watch a session recording to understand why the user churned. You need to read ROS logs, inspect sensor data, and physically walk through the environment the robot was operating in.
+
+## Owning the whole stack
+
+In software PM, you're usually working across frontend and backend. In robotics, the "stack" includes:
+
+- Embedded firmware running on microcontrollers
+- A real-time control loop managing motors and sensors
+- A navigation stack planning paths through physical space
+- Computer vision models interpreting the world
+- A cloud backend syncing state with mobile apps
+- The physical hardware itself — weight, battery life, motor torque
+
+Every one of these layers has to work together. A change in the navigation planner can affect battery consumption. A firmware update can break the ROS2 communication interface. Your job as PM is to hold all of this in your head while prioritising what actually matters to the user.
+
+## What actually transfers
+
+The fundamentals still apply. You still need to deeply understand your user — what they actually want vs. what they ask for, what friction kills adoption, what moments of delight make them tell others. You still need to ruthlessly prioritise. A robotics team working on 15 things simultaneously will ship nothing that works.
+
+The biggest skill I found transferable was **stakeholder alignment in ambiguity**. When you're building something genuinely new — a robot that autonomously cares for a pet at home — there's no existing benchmark. You're constantly making calls with incomplete data, and your job is to make sure the whole team is aligned on which direction you're betting on.
+
+## The parts nobody tells you about
+
+Hardware has lead times. If you scope a new sensor into a sprint without checking procurement, you'll have engineers blocked for 6 weeks waiting for parts.
+
+Physical testing is slow. You can't "run tests" in CI on a physical robot. Someone has to set up the environment, run the scenario, log the result, and reset. Multiply that across 30 edge cases.
+
+Safety is a first-class feature. In software, you can ship a bug and patch it. In robotics, some bugs are dangerous. You have to build safety thinking into the product process from day one — not as an afterthought.
+
+---
+
+If you're a software PM considering a move into robotics or IoT: it's hard, it's slow, and it's genuinely one of the most interesting product spaces to work in. The constraint of the physical world makes you a better product thinker.

@@ -2,48 +2,33 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Sampath",
+  lastName: "Kandregula",
+  name: `Sampath Ganesh Kandregula`,
+  role: "Product Manager · IoT & Robotics",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "sampathganesh01@gmail.com",
+  location: "Asia/Kolkata",
+  languages: ["English", "Telugu", "Hindi"],
 };
 
 const newsletter: Newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  description: <>Insights on robotics, AI agents, and building intelligent physical products.</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/sampathganesh01",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-    essential: true,
-  },
-  {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.linkedin.com/in/sampath01",
     essential: true,
   },
   {
@@ -58,34 +43,37 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  title: `${person.firstName}'s Portfolio`,
+  description: `Portfolio of ${person.firstName} — Product Manager in IoT & Robotics, building intelligent systems and autonomous robots.`,
+  headline: <>Shaping intelligent products from concept to deployment</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">ORo</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Featured project
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/oro-home-robot",
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      I'm Sampath, a Product Manager in IoT & Robotics at{" "}
+      <Text as="span" size="xl" weight="strong">ASBL</Text>. Previously at{" "}
+      <Text as="span" size="xl" weight="strong">Ogmen Robotics</Text>, I led a cross-functional team of 8 engineers to build{" "}
+      <Text as="span" size="xl" weight="strong">ORo</Text> — an autonomous home robot for dog care.
+    </>
   ),
 };
 
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  title: `About – ${person.firstName}`,
+  description: `Meet ${person.firstName}, Product Manager in IoT & Robotics, based in Hyderabad, India`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -102,52 +90,108 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Hi, I'm <strong>Sampath</strong> — a Product Manager in IoT & Robotics with deep technical roots in
+        autonomous systems. I specialise in bridging the gap between complex engineering and real-world product
+        delivery — owning roadmaps, aligning cross-functional teams, and shipping intelligent physical products.
+        With a background spanning ROS 2 autonomy, AI agent pipelines, and full-stack backend systems, I bring
+        both strategic product thinking and hands-on technical depth to every build.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "ASBL",
+        timeframe: "Feb 2026 - Present",
+        role: "Product Manager · IoT & Robotics",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Exploring and mapping opportunities across <strong>construction sites and high-rise residential
+            developments</strong> to identify where IoT and robotics can drive operational efficiency and
+            elevate resident experience.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Translating on-ground site insights into a product roadmap that bridges the gap between
+            complex built environments and <strong>intelligent, resident-first solutions</strong>.
+          </>,
+          <>
+            Working closely with construction, facilities, and resident operations stakeholders to
+            define <strong>product-market fit for smart building and IoT deployments</strong> in premium
+            residential projects.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Ogmen Robotics",
+        timeframe: "Aug 2023 - Jan 2026",
+        role: "Robotics Software Engineer → Team Lead & Robotics Architect",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Progressed from <strong>Robotics Software Engineer</strong> to <strong>Team Lead & Robotics Architect</strong>,
+            eventually acting as the primary <strong>Product Owner</strong> for "ORo" — a consumer robot for home dog care —
+            managing a cross-functional team of 8 engineers (Embedded Systems, Robotics Software,
+            Computer Vision & AI/ML) using Agile/Scrum in Jira.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Architected and oversaw deployment of a <strong>ROS 2-based autonomous navigation system</strong> using
+            Nav2, enabling reliable indoor navigation, obstacle avoidance, and precise localization
+            across a home robot fleet.
+          </>,
+          <>
+            Championed <strong>CI/CD pipelines with OTA</strong> (Over-The-Air) update support, standardizing
+            seamless deployment of embedded, perception, and control software to the robot fleet.
+          </>,
+          <>
+            Developed <strong>LLM-based navigation and re-localization pipelines</strong> that translate natural
+            language user instructions into robot behaviors and trigger smart recovery actions after
+            localization failures.
+          </>,
+          <>
+            Built a <strong>FastAPI-based backend</strong> integrating ROS 2 with cloud infrastructure and
+            the mobile app, ensuring synchronized task orchestration across the full product stack.
+          </>,
+          <>
+            Implemented custom <strong>object- and human-following behavior</strong> by integrating vision-based
+            detection with a custom DWB (Dynamic Window Approach) controller plugin.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Petpooja",
+        timeframe: "Jan 2023 - Jul 2023",
+        role: "Robotics Software Intern",
+        achievements: [
+          <>
+            Engineered and delivered a complete <strong>PoC for an autonomous food delivery robot</strong> for
+            restaurant environments — covering all software development and hardware integration from scratch.
+          </>,
+          <>
+            Built the autonomous navigation system using <strong>ROS 2 and NAV2</strong>, enabling reliable
+            path planning and obstacle avoidance inside restaurant venues.
+          </>,
+          <>
+            Developed a specialized <strong>API integrating the robot with staff workflows</strong>, allowing
+            waiters to assign target tables and trigger autonomous delivery runs.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "EBibil Technologies",
+        timeframe: "Jul 2021 - Sep 2021",
+        role: "Software Intern",
+        achievements: [
+          <>
+            Developed and deployed a <strong>computer vision pipeline for Automatic Number Plate Recognition
+            (ANPR)</strong>, achieving high accuracy in plate and character recognition.
+          </>,
+          <>
+            Established secure data transmission with <strong>AWS services</strong> to transfer and log vehicle
+            data in real-time, forming the core data layer of an automated parking system.
           </>,
         ],
         images: [],
@@ -155,78 +199,69 @@ const about: About = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
+    display: true,
+    title: "Education",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "G.N.A University, Punjab, India",
+        description: (
+          <>
+            B.Tech in Mechatronics Engineering · Aug 2019 – Aug 2023.{" "}
+            <strong>Gold Medalist</strong> and <strong>Best Student of the Year</strong>. Founded the
+            Student Council, established 18 technical and non-technical clubs, and led GNA AutoIgnite to
+            the national finals of SAE NIS Autonom 2023.
+          </>
+        ),
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true,
+    title: "Skills & Expertise",
     skills: [
       {
-        title: "Figma",
+        title: "Product Management",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>
+            Product vision definition, feature prioritization, stakeholder alignment, user story mapping,
+            Agile/Scrum mastery, sprint planning & retrospectives, JIRA and Whimsical tooling.
+          </>
         ),
-        tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        tags: [],
+        images: [],
       },
       {
-        title: "Next.js",
+        title: "Robotics & Autonomy",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>
+            ROS 1 / ROS 2, NAV2, MoveIt2, path planning, SLAM (2D Lidar and Visual), BehaviorTree.CPP,
+            sensor fusion (IMU, Lidar, Camera), custom DWB controller plugins.
+          </>
         ),
-        tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        tags: [],
+        images: [],
+      },
+      {
+        title: "AI & Machine Learning",
+        description: (
+          <>
+            AI agents, CrewAI, Pydantic AI, RAG systems, VLM (Vision Language Models), LLM-based
+            robot control pipelines, computer vision for perception and ANPR.
+          </>
+        ),
+        tags: [],
+        images: [],
+      },
+      {
+        title: "DevOps & Backend",
+        description: (
+          <>
+            Python, C++, Arduino, FastAPI, PostgreSQL, Docker, AWS, WebSockets, Webhooks,
+            CI/CD pipelines with OTA update support, GitHub.
+          </>
+        ),
+        tags: [],
+        images: [],
       },
     ],
   },
@@ -235,28 +270,22 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "Writing about robotics, AI, and product...",
+  description: `Thoughts on product management, intelligent systems, and autonomous robots by ${person.firstName}`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  title: `Projects – ${person.firstName}`,
+  description: `Robotics and IoT product projects by ${person.firstName}`,
 };
 
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
+  title: `Photo gallery – ${person.firstName}`,
+  description: `A photo collection by ${person.firstName}`,
   images: [
     {
       src: "/images/gallery/horizontal-1.jpg",

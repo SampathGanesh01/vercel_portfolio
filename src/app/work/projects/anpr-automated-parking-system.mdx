@@ -1,0 +1,51 @@
+---
+title: "ANPR Automated Parking System — EBibil Technologies"
+publishedAt: "2021-09-01"
+summary: "A computer vision pipeline for Automatic Number Plate Recognition (ANPR) integrated with AWS for real-time vehicle data logging, forming the core of an automated parking system."
+images:
+  - "/images/anpr/parking-aerial.jpg"
+  - "/images/anpr/parking-structure.jpg"
+  - "/images/anpr/car-driving.jpg"
+team:
+  - name: "Sampath Ganesh Kandregula"
+    role: "Software Intern"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/sampath01"
+tag: "Computer Vision · Cloud"
+---
+
+## Overview
+
+At EBibil Technologies, I developed and deployed a complete Automatic Number Plate Recognition (ANPR) system as a Proof of Concept for an automated parking management platform. The system combined computer vision for plate detection with cloud-based data logging to automate vehicle entry, exit, and timestamp recording.
+
+## Computer Vision Pipeline
+
+The ANPR pipeline handled the full recognition workflow:
+
+- **Detection**: Identified vehicle number plates in camera frames using trained object detection models
+- **Character Recognition**: Extracted and decoded plate characters with high accuracy across varied lighting and angle conditions
+- **Pre-processing**: Applied image normalization and perspective correction to handle real-world camera placement constraints
+
+The pipeline was tuned for the low-latency requirements of a parking gate — recognition needed to happen fast enough to trigger barrier control in real-time.
+
+## Cloud Integration (AWS)
+
+All recognized plate data was transmitted securely to AWS for logging and analytics:
+
+- Vehicle entry/exit timestamps recorded in real-time
+- Plate data stored with structured metadata for query and reporting
+- Secure transmission protocols established to protect vehicle identity data
+
+This cloud layer formed the data foundation that a full parking management platform could be built on — billing, duration tracking, and fleet analytics all become possible once this data pipeline is in place.
+
+## Technical Stack
+
+- **Computer Vision**: Python, OpenCV, plate detection and OCR models
+- **Cloud**: AWS (data ingestion and storage)
+- **Integration**: REST-based data pipeline from edge device to cloud
+
+## Outcomes
+
+- Delivered a fully deployed ANPR PoC demonstrating end-to-end recognition and cloud logging
+- Achieved high accuracy on number plate detection and character recognition in real parking conditions
+- Established the data layer architecture for an automated parking management system
