@@ -1,0 +1,86 @@
+---
+title: "Why Firmware Updates Are More Stressful Than Web Deployments"
+publishedAt: "2026-06-28"
+summary: "Deploying a web app and deploying firmware feel like the same thing — until your robot is stuck mid-update in a customer's living room at 11pm."
+tag: "Engineering"
+---
+
+Let me explain this with a story a five-year-old would understand.
+
+Imagine you have a LEGO robot. It follows a set of instructions written on a piece of paper inside its chest. One day you want to give it better instructions. To do that, you have to open the chest, take out the old paper, put in the new paper, and close it back up.
+
+Now imagine doing that while the robot is in the middle of serving someone a glass of water.
+
+That's firmware.
+
+## The Web Deploy: Swapping a Recipe in a Restaurant Kitchen
+
+When a web team ships a new feature, it's a bit like a restaurant quietly swapping out a recipe. The kitchen keeps running. If the new recipe tastes wrong, you pull it back and put the old one in. Diners at the table don't notice a thing. The worst case is a 500 error page for 30 seconds.
+
+Web deployments have three things that make engineers sleep well at night:
+
+- **Rollback in seconds.** Push a button and you're back to the last working version.
+- **No physical state.** A server doesn't care that it just rebooted. It starts fresh every time.
+- **Blue-green or canary deploys.** You can send 1% of traffic to the new version, watch it for an hour, and only then send everyone else.
+
+If something goes wrong, the blast radius is a bad user experience. Frustrating — but recoverable.
+
+## The Firmware Update: Brain Surgery on a Moving Robot
+
+Firmware is the software burned directly onto a microcontroller — the chip that controls motors, reads sensors, and manages power. It runs on hardware with sometimes 64KB of RAM. There is no operating system underneath it, no safety net, no garbage collector. Just instructions executing on bare metal.
+
+Now imagine pushing an update to that while the device is:
+
+- Physically deployed in a customer's home
+- Connected over a flaky Wi-Fi network
+- Actively running a cleaning cycle
+
+Here's what can go wrong:
+
+**The connection drops mid-flash.** The microcontroller is halfway through writing new code. The old code is partially overwritten. The new code is incomplete. The device is now a very expensive paperweight. In the industry, this is called a **brick** — because that's exactly what you have.
+
+**The bootloader fails to validate.** A bad checksum means the chip refuses to boot at all. No beep. No LED blink. Nothing.
+
+**The new firmware has a regression in the motor controller.** The robot starts spinning in circles. You can't push a hotfix because the update system itself is part of the firmware. Circular dependency.
+
+**Power cuts out at the wrong moment.** Unlike a server with UPS backup, a robot runs on a battery that might be at 12% because a user forgot to dock it.
+
+Each of these scenarios, in a web context, is a recoverable incident. In firmware, it's a field return — a physical device that has to be shipped back, reflashed on a bench, and returned to the customer.
+
+## Why I Stopped Pushing Firmware on Fridays
+
+At Ogmen Robotics, we had a strict rule: no firmware deployments after Wednesday. Not because of superstition, but because a botched firmware rollout on a Friday meant:
+
+- Customer support handling panicked users over the weekend
+- Engineers without access to lab hardware at home
+- No way to remotely fix a device that couldn't receive OTA updates anymore
+
+Web teams joke about not deploying on Fridays. Robotics teams write it into the release checklist.
+
+## The Technical Machinery That Helps
+
+Smart firmware teams build in safeguards:
+
+**A/B partition flashing.** The device has two storage slots — the current firmware in slot A and the incoming firmware in slot B. The update writes entirely to B. Only when the write is verified does the bootloader switch to B. If B fails to boot, it automatically falls back to A. This is how your phone survives botched OS updates.
+
+**Staged rollouts with fleet monitoring.** You push the update to 2% of devices, watch telemetry for 24 hours, then expand. If error rates spike, you halt the rollout — but you can only halt *future* updates. The 2% that already updated are updated.
+
+**Cryptographic signing.** Every firmware image is signed with a private key. The bootloader verifies the signature before accepting the image. This prevents malicious updates — but adds another failure point during the update ceremony.
+
+**Heartbeat checks.** The device sends a health ping every few minutes post-update. If pings stop, you know something went wrong before the customer calls support.
+
+These mechanisms work beautifully — when they work. Building and validating them is months of engineering effort before a single user-facing feature ships.
+
+## The Thing Nobody Says Out Loud
+
+The real stress isn't technical. It's this:
+
+In web development, failure is a bad day. In firmware, failure is in someone's home, attached to something physical, possibly with a child or a pet nearby, and you have limited ability to fix it remotely.
+
+That responsibility changes how you make decisions. It changes your definition of "done." It changes what you put in your release checklist and how long you spend in QA.
+
+It's not that firmware engineers are smarter or more careful than web engineers. It's that the physics of the problem forces a discipline that web deployment rarely demands.
+
+---
+
+The next time someone says "it's just a software update" about a device — ask them what happens if the power goes out halfway through. The answer to that question tells you everything about how hard the problem actually is.
