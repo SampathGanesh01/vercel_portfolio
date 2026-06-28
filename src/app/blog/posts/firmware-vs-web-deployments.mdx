@@ -7,9 +7,11 @@ tag: "Engineering"
 
 Let me explain this with a story a five-year-old would understand.
 
-Imagine you have a LEGO robot. It follows a set of instructions written on a piece of paper inside its chest. One day you want to give it better instructions. To do that, you have to open the chest, take out the old paper, put in the new paper, and close it back up.
+You know how a Swiggy delivery person uses Google Maps on their phone? If the road is blocked, Google Maps reroutes them instantly. The app updates in the background — they don't stop, don't pull over, don't do anything. The new route just appears.
 
-Now imagine doing that while the robot is in the middle of serving someone a glass of water.
+Now imagine a different delivery person. This one follows a printed paper map that their manager wrote by hand. To give them a new route, you have to physically find them, take back the old paper, hand them a new one, and hope they don't get lost in the gap.
+
+That's firmware. Your robot is the delivery person. The printed paper map is the firmware. And the problem is — you have to swap that paper while they're already somewhere in the middle of the city, carrying someone's biryani order.
 
 That's firmware.
 
@@ -49,13 +51,42 @@ Each of these scenarios, in a web context, is a recoverable incident. In firmwar
 
 ## Why I Stopped Pushing Firmware on Fridays
 
-At Ogmen Robotics, we had a strict rule: no firmware deployments after Wednesday. Not because of superstition, but because a botched firmware rollout on a Friday meant:
+While deploying my previous products, we had a strict rule: no firmware deployments after Wednesday. Not because of superstition, but because a botched firmware rollout on a Friday meant:
 
 - Customer support handling panicked users over the weekend
 - Engineers without access to lab hardware at home
 - No way to remotely fix a device that couldn't receive OTA updates anymore
 
 Web teams joke about not deploying on Fridays. Robotics teams write it into the release checklist.
+
+## The Hardest Loop You'll Ever Write
+
+Before a firmware update even starts downloading, a well-designed device runs a pre-flight checklist — a loop so strict it would feel paranoid in any other context.
+
+Back to the five-year-old version: imagine that Swiggy delivery person says, *"I will only accept a new paper map from you if I am parked safely at the restaurant AND my scooter has enough petrol to finish the delivery."* If either condition isn't met, they wave you off and keep going.
+
+That's not over-engineering. That's the only sane way to do it.
+
+Here's what that loop actually checks:
+
+**Battery level above a safe threshold.** On my previous products, we set this at 40% minimum — never lower. A firmware flash on a microcontroller can take anywhere from 30 seconds to several minutes depending on image size. If the battery dies at 60% through writing new code, you have a brick. The robot doesn't warn you. It doesn't save its progress. It just stops, mid-write, forever.
+
+**Device physically docked in the charging socket.** Battery percentage alone isn't enough. A device at 50% battery that isn't plugged in can still drain during the flash — especially if motors, sensors, and Wi-Fi are all active simultaneously. The rule we enforced was simple: *the device must be on the dock, actively charging, before the update sequence is allowed to proceed.* The firmware checks the charging pin state, not just the battery estimate.
+
+**No active task in progress.** If the robot is mid-cycle — navigating, cleaning, delivering — the update is deferred. Interrupting a task to update firmware is like a surgeon stopping mid-operation to update the medical software. You finish the job first.
+
+The loop that gates all of this looks conceptually simple:
+
+```
+while true:
+    if battery >= 40% AND charging_pin == ACTIVE AND no_task_running:
+        begin_firmware_update()
+        break
+    else:
+        wait(check_again_in_5_minutes)
+```
+
+Simple to read. Months to get right. The edge cases — what if the dock connection is intermittent? what if the battery sensor reports incorrectly at low charge? what if a task gets queued *during* the update window? — are where the real engineering lives.
 
 ## The Technical Machinery That Helps
 
