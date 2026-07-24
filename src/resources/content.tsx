@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Sampath",
   lastName: "Kandregula",
   name: `Sampath Ganesh Kandregula`,
-  role: "Product Manager · IoT & Robotics",
+  role: "Product Manager · AI · IoT · Robotics",
   avatar: "/images/avatar.jpg",
   email: "sampathganesh01@gmail.com",
   location: "Asia/Kolkata",
@@ -90,11 +90,9 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Hi, I'm <strong>Sampath</strong> — a Product Manager in IoT & Robotics with deep technical roots in
-        autonomous systems. I specialise in bridging the gap between complex engineering and real-world product
-        delivery — owning roadmaps, aligning cross-functional teams, and shipping intelligent physical products.
-        With a background spanning ROS 2 autonomy, AI agent pipelines, and full-stack backend systems, I bring
-        both strategic product thinking and hands-on technical depth to every build.
+        Hi, I'm <strong>Sampath</strong> — a Product Manager fascinated by AI and the future of intelligent
+        software. Whether it's AI agents, developer platforms, robotics, or connected devices, I enjoy building
+        products that simplify complexity and create meaningful value for users.
       </>
     ),
   },
@@ -108,18 +106,20 @@ const about: About = {
         role: "Product Manager · IoT & Robotics",
         achievements: [
           <>
-            Exploring and mapping opportunities across <strong>construction sites and high-rise residential
-            developments</strong> to identify where IoT and robotics can drive operational efficiency and
-            elevate resident experience.
+            Leading product discovery across <strong>5+ construction sites and residential communities</strong>,
+            identifying high-impact opportunities for IoT and automation throughout the construction lifecycle.
           </>,
           <>
-            Translating on-ground site insights into a product roadmap that bridges the gap between
-            complex built environments and <strong>intelligent, resident-first solutions</strong>.
+            Conducting <strong>30+ stakeholder interviews</strong> with construction teams, facility managers,
+            security personnel, and residents to uncover operational bottlenecks and validate product opportunities.
           </>,
           <>
-            Working closely with construction, facilities, and resident operations stakeholders to
-            define <strong>product-market fit for smart building and IoT deployments</strong> in premium
-            residential projects.
+            Defining product roadmaps and business cases for smart building initiatives across{" "}
+            <strong>access control, asset management, utility automation, and resident experience</strong>.
+          </>,
+          <>
+            Working cross-functionally with engineering, operations, vendors, and leadership to prioritize
+            features based on <strong>customer impact, technical feasibility, and business value</strong>.
           </>,
         ],
         images: [],
