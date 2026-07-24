@@ -45,7 +45,7 @@ const home: Home = {
   label: "Home",
   title: `${person.firstName}'s Portfolio`,
   description: `Portfolio of ${person.firstName} — Product Manager in IoT & Robotics, building intelligent systems and autonomous robots.`,
-  headline: <>Shaping intelligent products from concept to deployment</>,
+  headline: <>Building AI products for the physical world</>,
   featured: {
     display: true,
     title: (
@@ -61,10 +61,11 @@ const home: Home = {
   },
   subline: (
     <>
-      I'm Sampath, a Product Manager in IoT & Robotics at{" "}
-      <Text as="span" size="xl" weight="strong">ASBL</Text>. Previously at{" "}
-      <Text as="span" size="xl" weight="strong">Ogmen Robotics</Text>, I led a cross-functional team of 8 engineers to build{" "}
-      <Text as="span" size="xl" weight="strong">ORo</Text> — an autonomous home robot for dog care.
+      I'm Sampath, a Product Manager passionate about <Text as="span" size="xl" weight="strong">AI</Text>,{" "}
+      <Text as="span" size="xl" weight="strong">agents</Text>,{" "}
+      <Text as="span" size="xl" weight="strong">robotics</Text>, and{" "}
+      <Text as="span" size="xl" weight="strong">IoT</Text>. I enjoy turning customer problems into intelligent
+      products by combining product strategy with deep technical execution.
     </>
   ),
 };
@@ -231,22 +232,24 @@ const about: About = {
         images: [],
       },
       {
-        title: "Robotics & Autonomy",
+        title: "AI",
         description: (
           <>
-            ROS 1 / ROS 2, NAV2, MoveIt2, path planning, SLAM (2D Lidar and Visual), BehaviorTree.CPP,
-            sensor fusion (IMU, Lidar, Camera), custom DWB controller plugins.
+            AI Agents • Agentic AI • Multi-Agent Systems • Agent Orchestration • LLM Applications • Prompt
+            Engineering • Context Engineering • RAG (Retrieval-Augmented Generation) • AI Workflows • MCP
+            (Model Context Protocol) • Tool Calling & Function Calling • VLMs (Vision Language Models) •
+            Computer Vision • AI Product Design • CrewAI • Pydantic AI • AI Evaluation (Evals)
           </>
         ),
         tags: [],
         images: [],
       },
       {
-        title: "AI & Machine Learning",
+        title: "Robotics & Autonomy",
         description: (
           <>
-            AI agents, CrewAI, Pydantic AI, RAG systems, VLM (Vision Language Models), LLM-based
-            robot control pipelines, computer vision for perception and ANPR.
+            ROS 1 / ROS 2, NAV2, MoveIt2, path planning, SLAM (2D Lidar and Visual), BehaviorTree.CPP,
+            sensor fusion (IMU, Lidar, Camera), custom DWB controller plugins.
           </>
         ),
         tags: [],
