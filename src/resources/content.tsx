@@ -107,20 +107,22 @@ const about: About = {
         role: "Product Manager · IoT & Robotics",
         achievements: [
           <>
-            Leading product discovery across <strong>5+ construction sites and residential communities</strong>,
-            identifying high-impact opportunities for IoT and automation throughout the construction lifecycle.
+            Analysed <strong>3000+ internal helpdesk tickets</strong> across <strong>3+ societies</strong> and
+            interviewed facility teams to identify recurring operational problems and product opportunities.
           </>,
           <>
-            Conducting <strong>30+ stakeholder interviews</strong> with construction teams, facility managers,
-            security personnel, and residents to uncover operational bottlenecks and validate product opportunities.
+            Building <strong>HomesAI</strong>, a resident-facing AI chatbot and companion Helpdesk AI to
+            automate ticket creation and assignment — from understanding resident requests to identifying the
+            right on-site staff based on <strong>context, severity, location, and past resolutions</strong>.
           </>,
           <>
-            Defining product roadmaps and business cases for smart building initiatives across{" "}
-            <strong>access control, asset management, utility automation, and resident experience</strong>.
+            Defining a <strong>vendor-agnostic Smart Society platform</strong> integrating multiple building
+            systems like power, water, surveillance, access control, and utilities — designed to integrate
+            seamlessly with the AI Helpdesk Manager.
           </>,
           <>
-            Working cross-functionally with engineering, operations, vendors, and leadership to prioritize
-            features based on <strong>customer impact, technical feasibility, and business value</strong>.
+            Identified and prioritized <strong>AI and Robotics use cases</strong> across residential and
+            construction workflows based on practical, measurable business value.
           </>,
         ],
         images: [],
@@ -261,6 +263,16 @@ const about: About = {
           <>
             Python, C++, Arduino, FastAPI, PostgreSQL, Docker, AWS, WebSockets, Webhooks,
             CI/CD pipelines with OTA update support, GitHub.
+          </>
+        ),
+        tags: [],
+        images: [],
+      },
+      {
+        title: "Data",
+        description: (
+          <>
+            PostHog, Metabase, PostgreSQL, Mixpanel.
           </>
         ),
         tags: [],
